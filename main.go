@@ -10,7 +10,7 @@ import (
 
 func main() {
 	var (
-		railwayToken  = os.Getenv("RAILWAY_TOKEN")
+		railwayToken  = os.Getenv("RAILWAY_ACCOUNT_TOKEN")
 		projectId     = os.Getenv("RAILWAY_PROJECT_ID")
 		EnvironmentId = os.Getenv("RAILWAY_ENVIRONMENT_ID")
 	)
@@ -91,7 +91,7 @@ func main() {
 		}
 	}
 
-	fmt.Println("CNAME for custom domain: " + customDomainCreateResp.CustomDomainCreate.Status.DnsRecords[0].Fqdn)
+	fmt.Println("CNAME for custom domain: " + customDomainCreateResp.CustomDomainCreate.Status.DnsRecords[0].RequiredValue)
 
 	if _, err := railway.ServiceConnect(railwayClient, serviceCreateResp.ServiceCreate.Id, &railway.ServiceConnectInput{
 		Branch: "main",
