@@ -18,7 +18,7 @@ func main() {
 	railwayClient := railway.NewAuthedClient(railwayToken)
 
 	serviceCreateResp, err := railway.ServiceCreate(railwayClient, &railway.ServiceCreateInput{
-		Name:          "test_" + tools.RandString(5),
+		Name:          "test-" + tools.RandString(5),
 		EnvironmentId: EnvironmentId,
 		ProjectId:     projectId,
 	})
